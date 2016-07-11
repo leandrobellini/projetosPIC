@@ -1,0 +1,8 @@
+ÀÄsource
+   ÀÄMAIN  0/74  Ram=4
+      ÃÄ@cinit1  (Inline)  Ram=0
+      ÃÄkbd_init  0/3  Ram=0
+      ÃÄkbd_getc  0/103  Ram=3
+      ³  ÃÄ@MUL88  0/37  Ram=2
+      ³  ÀÄ@const593  0/16  Ram=0
+      ÀÄ@MUL88  0/37  Ram=2

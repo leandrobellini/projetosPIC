@@ -1,0 +1,18 @@
+#include <16F876.h>
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
+#include <lcd.c>
+#use standard_io(C)
+#use standard_io(A)
+
+enum funcoes{D1, D2, D3};
+
+void main(){
+   lcd_init();
+
+   lcd_gotoxy(1,1);
+   lcd_putc("REP ARROCHA");
+   
+   lcd_gotoxy(1,2);
+   lcd_putc("MELLITA'S FOOD");
+}

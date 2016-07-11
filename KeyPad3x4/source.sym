@@ -1,0 +1,123 @@
+004-005 @WRITE_PROGRAM_MEMORY8.P1
+004-005 @READ_PROGRAM_MEMORY8.P2
+006     lcdlat
+006     kbd
+006     lcd
+015     CCP_1
+015     CCP_1_LOW
+016     CCP_1_HIGH
+01B     CCP_2
+01B     CCP_2_LOW
+01C     CCP_2_HIGH
+020     kbd_getc.kbd_call_count
+021.0   kbd_getc.kbd_down
+022     kbd_getc.last_key
+023     kbd_getc.col
+024     MAIN.k
+025     MAIN.x
+026     @PRINTF_U_636.P1
+026     lcd_init.i
+026     kbd_getc.kchar
+026     @PSTRINGCN7_636.P1
+026     MAIN.@SCRATCH1
+026     @PSTRINGC7_636.@SCRATCH1
+027     kbd_getc.row
+027     @PRINTF_U_636.P1
+027     lcd_init.@SCRATCH1
+027     @PSTRINGC7_636.@SCRATCH2
+027     @PSTRINGCN7_636.@SCRATCH1
+028     @DIV88.P1
+028     @MUL88.P2
+028     kbd_getc.@SCRATCH1
+028     @PSTRINGC7_636.@SCRATCH3
+028     @PSTRINGCN7_636.@SCRATCH2
+029     @MUL88.P1
+029     @DIV88.P2
+029     @PSTRINGC7_636.@SCRATCH4
+029     @PSTRINGCN7_636.@SCRATCH3
+02A     @PSTRINGCN7_636.@SCRATCH4
+02A     @DIV88.@SCRATCH1
+02B     lcd_putc.c
+02C     lcd_gotoxy.x
+02C     @delay_ms1.P1
+02D     lcd_gotoxy.y
+02E     lcd_gotoxy.address
+02F     lcd_gotoxy.@SCRATCH1
+030     lcd_send_byte.address
+031     lcd_send_byte.n
+032     lcd_read_byte.low
+032     lcd_send_byte.@SCRATCH1
+033     lcd_send_nibble.n
+033     lcd_read_byte.high
+034     lcd_read_byte.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+086     lcdtris
+10D-10E @READ_PROGRAM_MEMORY8.P1
+10D-10E @WRITE_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  KEYS.call
+000008  KEYS.data
+000014  LCD_INIT_STRING.call
+000018  LCD_INIT_STRING.data
+00001C  @const653.call
+000022  @const655.call
+000027  @const658.call
+00002C  @const665.call
+000031  @const666.call
+000037  @delay_ms1
+00004C  lcd_send_nibble
+000058  lcd_read_nibble
+00005E  lcd_send_byte
+000064  lcd_read_byte
+00009E  lcd_init
+0000D1  kbd_init
+0000D4  lcd_gotoxy
+0000E6  lcd_putc
+000112  @PSTRINGC7_636
+00015D  kbd_getc
+0001AD  @MUL88
+0001E7  @PSTRINGCN7_636
+00023B  @DIV88
+000250  @PRINTF_U_636
+000285  MAIN
+000285  @cinit1
+00028D  @cinit2
+
+Project Directory:
+    C:\Users\Bellini\Documents\Projetos PIC\KeyPad3x4\
+
+Project Files:
+    source.c                                                [11-jul-16 00:04  CRC=040359CB]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16F876.h [03-jul-13 14:28  CRC=A671767B]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\KBD.c   [23-set-10 09:09  CRC=8814BCFC]
+    ..\..\..\..\..\Program Files (x86)\PICC\Drivers\LCD.c   [23-ago-12 09:01  CRC=D28E8746]
+
+Source signature=D7A69BCE
+
+Units:
+    source (main)
+
+Compiler Settings:
+    Processor:      PIC16F876
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   source.xsym
+    Errors:      source.err
+    Ext Symbols: source.esym
+    INHX8:       source.hex
+    Symbols:     source.sym
+    List:        source.lst
+    Debug/COFF:  source.cof
+    Project:     source.ccspjt
+    Call Tree:   source.tre
+    Statistics:  source.STA

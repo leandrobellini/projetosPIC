@@ -1,0 +1,6 @@
+>>> Warning 203 "source.c" Line 13(1,1): Condition always TRUE
+>>> Warning 207 "source.c" Line 22(1,1): Code has no effect
+>>> Warning 207 "source.c" Line 24(1,1): Code has no effect
+      Memory usage:   ROM=3%      RAM=4% - 5%
+      0 Errors,  3 Warnings.
+Build Successful.

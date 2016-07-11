@@ -1,0 +1,155 @@
+CCS PCM C Compiler, Version 5.008, 5967               10-jul-16 17:23
+
+               Filename:   C:\Users\Bellini\Documents\Projetos PIC\Display_2Seg\codigo.lst
+
+               ROM used:   92 words (1%)
+                           Largest free fragment is 2048
+               RAM used:   8 (2%) at main() level
+                           8 (2%) worst case
+               Stack used: 1 locations
+               Stack size: 8
+
+*
+0000:  MOVLW  00
+0001:  MOVWF  0A
+0002:  GOTO   027
+0003:  NOP
+.................... #include <16f876.h> 
+.................... //////// Standard Header file for the PIC16F876 device //////////////// 
+.................... #device PIC16F876 
+0004:  BCF    0A.0
+0005:  BCF    0A.1
+0006:  BCF    0A.2
+0007:  ADDWF  02,F
+0008:  RETLW  C0
+0009:  RETLW  F9
+000A:  RETLW  A4
+000B:  RETLW  B0
+000C:  RETLW  99
+000D:  RETLW  92
+000E:  RETLW  82
+000F:  RETLW  F8
+0010:  RETLW  80
+0011:  RETLW  98
+....................  
+.................... #list 
+....................  
+.................... #USE DELAY(CLOCK = 4000000) 
+0012:  MOVLW  23
+0013:  MOVWF  04
+0014:  BCF    03.7
+0015:  MOVF   00,W
+0016:  BTFSC  03.2
+0017:  GOTO   026
+0018:  MOVLW  01
+0019:  MOVWF  78
+001A:  CLRF   77
+001B:  DECFSZ 77,F
+001C:  GOTO   01B
+001D:  DECFSZ 78,F
+001E:  GOTO   01A
+001F:  MOVLW  4A
+0020:  MOVWF  77
+0021:  DECFSZ 77,F
+0022:  GOTO   021
+0023:  GOTO   024
+0024:  DECFSZ 00,F
+0025:  GOTO   018
+0026:  RETURN
+.................... #FUSES XT, NOWDT, NOPROTECT, NOPUT 
+....................  
+.................... #USE fast_IO(B) 
+.................... #USE fast_IO(A 
+....................  
+.................... byte CONST DISPLAY[10] = {0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8, 0x80, 0x98}; 
+....................  
+.................... void main(){ 
+0027:  MOVF   03,W
+0028:  ANDLW  1F
+0029:  MOVWF  03
+002A:  BSF    03.5
+002B:  BSF    1F.0
+002C:  BSF    1F.1
+002D:  BSF    1F.2
+002E:  BCF    1F.3
+002F:  BCF    03.7
+0030:  BCF    03.5
+0031:  CLRF   21
+0032:  CLRF   22
+....................    int ud=0, dec=0; 
+....................  
+....................    SET_TRIS_B(0x00); 
+0033:  MOVLW  00
+0034:  BSF    03.5
+0035:  MOVWF  06
+....................    SET_TRIS_A(0x00); 
+0036:  MOVWF  05
+....................     
+....................    output_low(PIN_A1);        //desliga digito descimal 
+0037:  BCF    03.5
+0038:  BCF    05.1
+....................    output_high(PIN_A0);       //liga digito unidade 
+0039:  BSF    05.0
+....................     
+....................    while(1){ 
+....................       for(dec=0; dec < 10; dec++){ 
+003A:  CLRF   22
+003B:  MOVF   22,W
+003C:  SUBLW  09
+003D:  BTFSS  03.0
+003E:  GOTO   05A
+....................          for(ud=0; ud < 10; ud++){ 
+003F:  CLRF   21
+0040:  MOVF   21,W
+0041:  SUBLW  09
+0042:  BTFSS  03.0
+0043:  GOTO   058
+....................             output_high(PIN_A0);       //liga digito unidade 
+0044:  BSF    05.0
+....................             output_low(PIN_A1);        //desliga digito descimal 
+0045:  BCF    05.1
+....................             output_B(DISPLAY[ud]);     //mostra digito unidade 
+0046:  MOVF   21,W
+0047:  CALL   004
+0048:  MOVWF  23
+0049:  MOVWF  06
+....................             delay_ms(50);   
+004A:  MOVLW  32
+004B:  MOVWF  23
+004C:  CALL   012
+....................              
+....................             output_high(PIN_A1);        //liga digito descimal 
+004D:  BSF    05.1
+....................             output_low(PIN_A0);       //desliga digito unidade 
+004E:  BCF    05.0
+....................             output_B(DISPLAY[dec]);  
+004F:  MOVF   22,W
+0050:  CALL   004
+0051:  MOVWF  23
+0052:  MOVWF  06
+....................             delay_ms(50);  
+0053:  MOVLW  32
+0054:  MOVWF  23
+0055:  CALL   012
+0056:  INCF   21,F
+0057:  GOTO   040
+....................              
+....................              
+....................                 
+....................         } 
+0058:  INCF   22,F
+0059:  GOTO   03B
+....................          
+....................       } 
+005A:  GOTO   03A
+....................        
+....................        
+....................     
+....................    } 
+....................     
+....................     
+.................... } 
+005B:  SLEEP
+
+Configuration Fuses:
+   Word  1: 3F79   XT NOWDT NOPUT BROWNOUT NOLVP NOCPD NOWRT NODEBUG NOPROTECT

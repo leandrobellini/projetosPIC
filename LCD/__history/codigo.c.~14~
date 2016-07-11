@@ -1,0 +1,70 @@
+#include <16F876.h>
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
+#include <lcd.c>
+#use standard_io(C)
+#use standard_io(A)
+
+enum funcoes{D1, D2, D3};
+
+void mostra_lcd(int item){
+   lcd_putc('\f');         //Limpa LCD
+   switch(item){
+      case D1:
+         lcd_putc("Led 1");      //Escreve no LCD
+         break;
+      case D2:
+         lcd_putc("Led 2");
+         break;
+      case D3:
+         lcd_putc("Led 3");
+         break;
+   }
+}
+
+void vai_led(int item){
+   switch(item){
+      case D1:
+         output_toggle(PIN_C2);
+         break;
+      case D2:
+         output_toggle(PIN_C1);
+         break;
+      case D3:
+         output_toggle(PIN_C0);
+         break;
+   
+   }
+}
+
+void main(){
+   int item = 0;
+   
+   while(1){
+      if(input(PIN_A0)){
+         item++;
+         delay_ms(300);          //evita problemas com a chave
+         if(item > 2){
+            item = 0;
+         }
+         mostra_lcd(item);
+      }
+      
+      if(input(PIN_A1)){
+         delay_ms(300);
+         vai_led(item);
+      }
+   
+   }
+   
+}
+
+
+
+
+
+
+
+
+
+

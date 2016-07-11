@@ -1,0 +1,59 @@
+004-005 @READ_PROGRAM_MEMORY8.P1
+004-005 @WRITE_PROGRAM_MEMORY8.P2
+015     CCP_1_LOW
+015     CCP_1
+016     CCP_1_HIGH
+01B     CCP_2_LOW
+01B     CCP_2
+01C     CCP_2_HIGH
+021     main.ud
+022     main.dec
+023     @delay_ms1.P1
+023     main.@SCRATCH1
+077     @SCRATCH
+078     @SCRATCH
+078     _RETURN_
+079     @SCRATCH
+07A     @SCRATCH
+10D-10E @WRITE_PROGRAM_MEMORY8.P1
+10D-10E @READ_PROGRAM_MEMORY8.P2
+
+ROM Allocation:
+000004  DISPLAY.call
+000008  DISPLAY.data
+000012  @delay_ms1
+000027  main
+000027  @cinit1
+00002F  @cinit2
+
+Project Directory:
+    C:\Users\Bellini\Documents\Projetos PIC\Display_2Seg\
+
+Project Files:
+    codigo.c                                                [10-jul-16 17:23  CRC=F3A3ED95]
+    ..\..\..\..\..\Program Files (x86)\PICC\Devices\16f876.h [03-jul-13 14:28  CRC=A671767B]
+
+Source signature=4086DA8B
+
+Units:
+    codigo (main)
+
+Compiler Settings:
+    Processor:      PIC16F876
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    XREF file:   codigo.xsym
+    Errors:      codigo.err
+    Ext Symbols: codigo.esym
+    INHX8:       codigo.hex
+    Symbols:     codigo.sym
+    List:        codigo.lst
+    Debug/COFF:  codigo.cof
+    Project:     codigo.ccspjt
+    Call Tree:   codigo.tre
+    Statistics:  codigo.STA

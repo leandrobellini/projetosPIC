@@ -1,0 +1,51 @@
+#include <16F876.h>
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
+#include <lcd.c>
+#use standard_io(C)
+#use standard_io(A)
+
+enum funcoes{D1, D2, D3};
+
+void mostra_lcd(int item){
+   switch(item){
+      case D1:
+         lcd_putc("Led 1");
+         break;
+      case D2:
+         lcd_putc("Led 2");
+         break;
+      case D3:
+         lcd_putc("Led 3");
+         break;
+   }
+}
+
+void main(){
+   int itens = 0;
+   
+   while(1){
+      if(input(PIN_A0)){
+         itens++;
+         delay_ms(300);
+      }
+      if(itens > 2){
+         itens = 0;
+      }
+      
+      mostra_lcd(itens);
+      
+   
+   }
+   
+}
+
+
+
+
+
+
+
+
+
+

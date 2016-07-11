@@ -1,0 +1,32 @@
+#include <16F876.h>
+#fuses XT, NOWDT
+#use delay(clock = 4000000)
+#include <lcd.c>
+#use standard_io(C)
+#use standard_io(A)
+
+enum funcoes{D1, D2, D3};
+
+void main(){
+   int itens = 0;
+   
+   while(1){
+      if(input(PIN_A0)){
+         itens++;
+      }
+      if(itens > 2)
+         itens = 0;
+   
+   }
+   
+}
+
+
+
+
+
+
+
+
+
+
