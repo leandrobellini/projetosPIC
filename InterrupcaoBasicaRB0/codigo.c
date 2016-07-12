@@ -1,0 +1,23 @@
+#include <16F876.h>
+#fuses XT,NOWDT, PUT, NOWRT
+#use delay(clock=4000000)
+#use fast_io(B)
+int1 troca=0;
+
+#INT_EXT            		   //interrupcao externa1
+ext_isr(){        			   //funcao q atende a interrupçao
+   output_toggle(PIN_B7);
+}
+
+void main(){
+   set_tris_B(0x01);      		//B0 como entrada, B7 como saida
+   output_low(PIN_B7);      	//Apago o LED
+   port_b_pullups(TRUE);    	//seta os resistores pullups da porta B
+   enable_interrupts(int_ext);  //Habilita interrupcao ext1
+   ext_int_edge(L_TO_H);    	//Habilita interrupcao por subida de borda
+   enable_interrupts(GLOBAL); 	//Hab interrupcao geral
+
+   while(1){
+      
+   }
+}

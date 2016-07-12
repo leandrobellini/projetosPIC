@@ -1,0 +1,6 @@
+>>> Warning 208 "codigo.c" Line 8(1,8): Function not void and does not return a value  ext_isr
+>>> Warning 203 "codigo.c" Line 20(1,1): Condition always TRUE
+>>> Warning 202 "codigo.c" Line 5(6,11): Variable never used:   troca
+      Memory usage:   ROM=1%      RAM=4% - 4%
+      0 Errors,  3 Warnings.
+Build Successful.
